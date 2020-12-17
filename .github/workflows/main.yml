@@ -15,7 +15,6 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -29,16 +28,4 @@ jobs:
       - run: python -m pip install --upgrade pip setuptools wheel
       - name: Run Script
       - run: python numetric_char_str.py
-      - name: Run a multi-line script
-      - run: |
-          git config user.name ${NAME}
-          git config user.email ${EMAIL}
-          git remote set-url origin https://${NAME}:${{ secrets.USER_GITHUB }}@github.com/${NAME}/${REPO}
-          git add .
-          git commit -m "create escape gml file"
-          git pull
-          git push origin master
-      - env:
-          NAME: Villager-B
-          EMAIL: kkss07020@gmail.com
-          REPO: github-action-training
+
