@@ -1,4 +1,4 @@
-name: do Python 
+name: auto create escape-gml file
 
 on:
   push:
