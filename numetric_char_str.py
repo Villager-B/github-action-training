@@ -1,16 +1,14 @@
 import html
 import sys
-
+import os
+import glob
+import shutil
 
 def main():
-    try:
-        f_name = sys.argv[1]
-    except BaseException:
-        print('Please Write your file name')
-        print('''Useage :
-         python numetric_char_str.py [file name]
-        ''')
-        sys.exit(0)
+    
+    files = glob.glob('dirs/*.gml')
+    f_name = files[0]
+    print('f_name ',f_name)
 
     with open(f_name) as f:
         print('file read ...')
@@ -27,6 +25,9 @@ def main():
 
         with open(file_name + "-unescape." + extension, "w") as wf:
             wf.write(fix_text)
+
+    shutil.move(f_name, "dirs/original")
+    shutil.move(file_name + "-unescape." + extension, "dirs/escape")
 
 
 if __name__ == '__main__':
